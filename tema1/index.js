@@ -34,8 +34,7 @@ const app = http.createServer((request, response) => {
         //will either get the required handler or 'not found page'
         let chosenHandler = typeof router[endpoint] !== 'undefined' ? router[endpoint] : handlers.notFound;
 
-        //wait for the callback
-        chosenHandler(body, (statusCode, contentType, payload) => {
+        let callback = (statusCode, contentType, payload) => {
             let diff = process.hrtime(startTime);
             logs.status = statusCode;
             logs.response = payload;
@@ -45,7 +44,12 @@ const app = http.createServer((request, response) => {
             response.writeHead(statusCode, { "Content-Type": contentType });
             response.write(payload);
             response.end();
-        });
+        };
+        //wait for the callback
+        if (params) {
+            chosenHandler(params, callback);
+        }
+        else chosenHandler(body, callback);
     });
 
 });
@@ -53,6 +57,7 @@ const app = http.createServer((request, response) => {
 let handlers = {};
 
 handlers.index = async function (body, callback) {
+    //var body1=bodyl
     if (!body) {
         callback(400, 'application/json', JSON.stringify({ message: 'missing body' }));
         return;
@@ -71,7 +76,8 @@ handlers.index = async function (body, callback) {
 
         finalResponse.message = await denumire(foodCalories - tdeeCalories);
     });
-    callback(200, 'application/json', JSON.stringify(finalResponse));
+
+    callback(200, 'text/plain', JSON.stringify(finalResponse));
 
 };
 async function denumire(calories_target) {
@@ -81,14 +87,15 @@ async function denumire(calories_target) {
             promises.push(UseThemBoth(j));
         }
         await Promise.all(promises).then((values) => {
-            console.log(values);
+
             for (const value of values) {
                 res = value.exercises[0].nf_calories;
-                if (res >= calories_target){
-                    resolve( `You need to run ${values.indexOf(value)+1} kilometers`);console.log('123')}
+                if (res >= calories_target) {
+                    resolve(`You need to run ${values.indexOf(value) + 1} kilometers`);
+                }
             };
         })
-        resolve( "index out of hope");
+        resolve("index out of hope");
     });
 
 };
@@ -122,7 +129,6 @@ async function TDEE(body) {
     let url = `https://api.apollodiet.com/api/calculator/tdee`;
     body.Gender = 1;
     body.CalorieBMRFormula = 1;
-    console.log(body.HeightCm)
     let response = await createPostRequest(url, body);
     try {
         return (response);
