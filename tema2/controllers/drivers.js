@@ -62,7 +62,7 @@ function handler(data, callback) {
         case 'delete':
             switch (extras.length) {
                 case 0:
-                    callback(405);
+                    deletedrivers(callback);
                     break;
                 case 1:
                     if (parseInt(extras[0]))
@@ -294,6 +294,20 @@ function deletedriver(id, callback) {
     });
 }
 
+function deletedrivers(callback) {
+    mongoDB.connect('mongodb://localhost:27017', async function (err, client) {
+        if (err) {
+            serverError(callback);
+            return;
+        }
+        let db = client.db('Rental');
+        let result = await db.collection('drivers').deleteMany({_id: {$gt:0}});
+        //all drivers deleted
+        if (result.deletedCount > 0) {
+            callback(200)
+        } else notFound(callback)
+    });
+}
 
 /**Shortcut Functions**/
 function noSuchEndpoint(callback) {

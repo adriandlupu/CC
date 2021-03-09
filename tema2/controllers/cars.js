@@ -62,7 +62,7 @@ function handler(data, callback) {
         case 'delete':
             switch (extras.length) {
                 case 0:
-                    callback(405);
+                    deletecars(callback);
                     break;
                 case 1:
                     if (parseInt(extras[0]))
@@ -244,6 +244,21 @@ function deletecar(id, callback) {
         let db = client.db('Rental');
         let result = await db.collection('cars').deleteOne({_id: id});
         //a car was deleted
+        if (result.deletedCount > 0) {
+            callback(200)
+        } else notFound(callback)
+    });
+}
+
+function deletecars(callback) {
+    mongoDB.connect('mongodb://localhost:27017', async function (err, client) {
+        if (err) {
+            serverError(callback);
+            return;
+        }
+        let db = client.db('Rental');
+        let result = await db.collection('cars').deleteMany({_id: {$gt:0}});
+        //all cars deleted
         if (result.deletedCount > 0) {
             callback(200)
         } else notFound(callback)
