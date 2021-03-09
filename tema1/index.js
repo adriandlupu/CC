@@ -83,7 +83,7 @@ handlers.index = async function (body, callback) {
 async function denumire(calories_target) {
     return new Promise(async function (resolve, reject) {
         let promises = [];
-        for (let j = 1; j < 20; j++) {
+        for (let j = 1; j < 50; j++) {
             promises.push(UseThemBoth(j));
         }
         await Promise.all(promises).then((values) => {

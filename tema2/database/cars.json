@@ -1,0 +1,10 @@
+{"_id":{"$numberInt":"1"},"title":"Golf 5","taken":"Yes","takenBy":"1","lastTakenDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"2"},"title":"Golf 7","taken":"No","takenBy":"2","lastTakenDate":"2020-02-23","returnDate":"2021-01-21"}
+{"_id":{"$numberInt":"3"},"title":"Golf 7","taken":"No","takenBy":"3","lastTakenDate":"2020-02-23","returnDate":"2021-01-21"}
+{"_id":{"$numberInt":"4"},"title":"Passat","taken":"Yes","takenBy":"4","lastTakenDate":"2020-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"5"},"title":"Dacia Logan","taken":"Yes","takenBy":"5","lastTakenDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"6"},"title":"Fiat Grande Punto","taken":"Yes","takenBy":"6","lastTakenDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"7"},"title":"Peugeot 407","taken":"No","takenBy":"7","lastTakenDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"8"},"title":"Mercedes CLS","taken":"Yes","takenBy":"8","lastTakenDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"9"},"title":"BMW Seria 5","taken":"No","takenBy":"9","lastTakenDate":"2021-02-23","returnDate":"2021-09-21"}
+

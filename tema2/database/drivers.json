@@ -1,0 +1,10 @@
+{"_id":{"$numberInt":"1"},"name":"Popescu Ion","carId":"1","lastcarIdDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"2"},"name":"Leonardo Dicaprio","carId":"2","lastcarIdDate":"2020-02-23","returnDate":"2021-01-21"}
+{"_id":{"$numberInt":"3"},"name":"Jason Statam","carId":"3","lastcarIdDate":"2020-02-23","returnDate":"2021-01-21"}
+{"_id":{"$numberInt":"4"},"name":"Mihai Bendeac","carId":"4","lastcarIdDate":"2020-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"5"},"name":"Gavrilut","carId":"5","lastcarIdDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"6"},"name":"Mihaluca Sergiu","carId":"6","lastcarIdDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"7"},"name":"Titi Aur","carId":"7","lastcarIdDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"8"},"name":"Silvester Stalone","carId":"8","lastcarIdDate":"2021-02-23","returnDate":"2021-09-21"}
+{"_id":{"$numberInt":"9"},"name":"Radu Bucalae","carId":"9","lastcarIdDate":"2021-02-23","returnDate":"2021-09-21"}
+
